@@ -1,0 +1,46 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "binauth": "https://cloud.google.com/binary-authorization/ns/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+
+    "Policy": {
+      "@id": "binauth:Policy",
+      "@context": {
+        "name": "binauth:policyName",
+        "globalPolicyEvaluationMode": "binauth:globalPolicyEvaluationMode",
+        "defaultAdmissionRule": "binauth:defaultAdmissionRule",
+        "clusterAdmissionRules": "binauth:clusterAdmissionRules",
+        "admissionWhitelistPatterns": "binauth:admissionWhitelistPatterns",
+        "updateTime": {
+          "@id": "dcterms:modified",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "Attestor": {
+      "@id": "binauth:Attestor",
+      "@context": {
+        "name": "binauth:attestorName",
+        "description": "schema:description",
+        "userOwnedGrafeasNote": "binauth:userOwnedGrafeasNote",
+        "updateTime": {
+          "@id": "dcterms:modified",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "AdmissionRule": {
+      "@id": "binauth:AdmissionRule",
+      "@context": {
+        "evaluationMode": "binauth:evaluationMode",
+        "requireAttestationsBy": "binauth:requireAttestationsBy",
+        "enforcementMode": "binauth:enforcementMode"
+      }
+    }
+  }
+}

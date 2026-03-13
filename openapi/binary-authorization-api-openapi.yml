@@ -1,0 +1,319 @@
+openapi: 3.1.0
+info:
+  title: Google Cloud Binary Authorization API
+  description: >-
+    The Binary Authorization API provides deploy-time security controls for
+    container images on Google Cloud. It enables management of policies,
+    attestors, and attestations to ensure only trusted container images are
+    deployed to GKE, Cloud Run, and Anthos environments.
+  version: v1
+  contact:
+    name: Google Cloud Support
+    url: https://cloud.google.com/binary-authorization/docs/support
+  termsOfService: https://cloud.google.com/terms
+externalDocs:
+  description: Binary Authorization API Documentation
+  url: https://cloud.google.com/binary-authorization/docs/reference/rest
+servers:
+  - url: https://binaryauthorization.googleapis.com/v1
+    description: Production Server
+tags:
+  - name: Policy
+    description: Operations for managing the Binary Authorization policy
+  - name: Attestors
+    description: Operations for managing attestors
+  - name: Attestations
+    description: Operations for validating attestations
+security:
+  - oauth2: []
+paths:
+  /projects/{projectId}/policy:
+    get:
+      operationId: getPolicy
+      summary: Get project policy
+      description: >-
+        Gets the policy for a project. Returns a default policy if the project
+        does not have one configured.
+      tags:
+        - Policy
+      parameters:
+        - $ref: '#/components/parameters/projectId'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Policy'
+    put:
+      operationId: updatePolicy
+      summary: Update project policy
+      description: Creates or updates a project's policy.
+      tags:
+        - Policy
+      parameters:
+        - $ref: '#/components/parameters/projectId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Policy'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Policy'
+  /projects/{projectId}/attestors:
+    get:
+      operationId: listAttestors
+      summary: List attestors
+      description: Lists attestors in a project.
+      tags:
+        - Attestors
+      parameters:
+        - $ref: '#/components/parameters/projectId'
+        - $ref: '#/components/parameters/pageSize'
+        - $ref: '#/components/parameters/pageToken'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListAttestorsResponse'
+    post:
+      operationId: createAttestor
+      summary: Create an attestor
+      description: Creates an attestor in a project.
+      tags:
+        - Attestors
+      parameters:
+        - $ref: '#/components/parameters/projectId'
+        - name: attestorId
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Attestor'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Attestor'
+  /projects/{projectId}/attestors/{attestorId}:
+    get:
+      operationId: getAttestor
+      summary: Get an attestor
+      description: Gets an attestor by resource name.
+      tags:
+        - Attestors
+      parameters:
+        - $ref: '#/components/parameters/projectId'
+        - $ref: '#/components/parameters/attestorId'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Attestor'
+    put:
+      operationId: updateAttestor
+      summary: Update an attestor
+      description: Updates an attestor.
+      tags:
+        - Attestors
+      parameters:
+        - $ref: '#/components/parameters/projectId'
+        - $ref: '#/components/parameters/attestorId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Attestor'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Attestor'
+    delete:
+      operationId: deleteAttestor
+      summary: Delete an attestor
+      description: Deletes an attestor.
+      tags:
+        - Attestors
+      parameters:
+        - $ref: '#/components/parameters/projectId'
+        - $ref: '#/components/parameters/attestorId'
+      responses:
+        '200':
+          description: Successful response
+  /projects/{projectId}/attestors/{attestorId}:validateAttestationOccurrence:
+    post:
+      operationId: validateAttestationOccurrence
+      summary: Validate attestation occurrence
+      description: Returns whether the given attestation occurrence is valid.
+      tags:
+        - Attestations
+      parameters:
+        - $ref: '#/components/parameters/projectId'
+        - $ref: '#/components/parameters/attestorId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                attestation:
+                  type: object
+                  description: The attestation to validate
+                occurrenceNote:
+                  type: string
+                  description: The resource name of the note to which the occurrence is associated
+                occurrenceResourceUri:
+                  type: string
+                  description: The URI of the resource the occurrence is associated with
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: string
+                    enum: [VERIFIED, ATTESTATION_NOT_VERIFIABLE]
+                  denialReason:
+                    type: string
+components:
+  parameters:
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      schema:
+        type: string
+    attestorId:
+      name: attestorId
+      in: path
+      required: true
+      schema:
+        type: string
+    pageSize:
+      name: pageSize
+      in: query
+      schema:
+        type: integer
+    pageToken:
+      name: pageToken
+      in: query
+      schema:
+        type: string
+  schemas:
+    Policy:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The resource name of the policy
+        globalPolicyEvaluationMode:
+          type: string
+          enum: [ENABLE, DISABLE]
+          description: Whether to enable the global policy evaluation mode
+        admissionWhitelistPatterns:
+          type: array
+          items:
+            type: object
+            properties:
+              namePattern:
+                type: string
+                description: An image name pattern to allowlist
+          description: Admission allowlist patterns
+        defaultAdmissionRule:
+          $ref: '#/components/schemas/AdmissionRule'
+        clusterAdmissionRules:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/AdmissionRule'
+          description: Per-cluster admission rules
+        updateTime:
+          type: string
+          format: date-time
+    AdmissionRule:
+      type: object
+      properties:
+        evaluationMode:
+          type: string
+          enum: [ALWAYS_ALLOW, ALWAYS_DENY, REQUIRE_ATTESTATION]
+        requireAttestationsBy:
+          type: array
+          items:
+            type: string
+          description: Resource names of attestors required
+        enforcementMode:
+          type: string
+          enum: [ENFORCED_BLOCK_AND_AUDIT_LOG, DRYRUN_AUDIT_LOG_ONLY]
+    Attestor:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The resource name of the attestor
+        description:
+          type: string
+        userOwnedGrafeasNote:
+          type: object
+          properties:
+            noteReference:
+              type: string
+              description: The Container Analysis note reference
+            publicKeys:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  pkixPublicKey:
+                    type: object
+                    properties:
+                      publicKeyPem:
+                        type: string
+                      signatureAlgorithm:
+                        type: string
+        updateTime:
+          type: string
+          format: date-time
+    ListAttestorsResponse:
+      type: object
+      properties:
+        attestors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Attestor'
+        nextPageToken:
+          type: string
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/cloud-platform: Full access to Google Cloud

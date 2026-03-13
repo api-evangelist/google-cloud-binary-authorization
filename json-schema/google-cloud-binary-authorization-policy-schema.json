@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cloud.google.com/schemas/binaryauthorization/policy.json",
+  "title": "Google Cloud Binary Authorization Policy",
+  "description": "Schema for a Binary Authorization policy, which defines the rules for deploying container images to Google Cloud environments.",
+  "type": "object",
+  "required": ["defaultAdmissionRule"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The resource name of the policy"
+    },
+    "globalPolicyEvaluationMode": {
+      "type": "string",
+      "description": "Whether to enable the global policy evaluation mode",
+      "enum": ["ENABLE", "DISABLE"]
+    },
+    "admissionWhitelistPatterns": {
+      "type": "array",
+      "description": "Image name patterns that are always allowed to be deployed",
+      "items": {
+        "$ref": "#/$defs/AdmissionWhitelistPattern"
+      }
+    },
+    "defaultAdmissionRule": {
+      "$ref": "#/$defs/AdmissionRule",
+      "description": "The default admission rule for the policy"
+    },
+    "clusterAdmissionRules": {
+      "type": "object",
+      "description": "Per-cluster admission rules keyed by cluster resource ID",
+      "additionalProperties": {
+        "$ref": "#/$defs/AdmissionRule"
+      }
+    },
+    "kubernetesNamespaceAdmissionRules": {
+      "type": "object",
+      "description": "Per-namespace admission rules",
+      "additionalProperties": {
+        "$ref": "#/$defs/AdmissionRule"
+      }
+    },
+    "kubernetesServiceAccountAdmissionRules": {
+      "type": "object",
+      "description": "Per-service-account admission rules",
+      "additionalProperties": {
+        "$ref": "#/$defs/AdmissionRule"
+      }
+    },
+    "updateTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The time when the policy was last updated"
+    }
+  },
+  "$defs": {
+    "AdmissionRule": {
+      "type": "object",
+      "description": "An admission rule specifies what action to take when a container image matches the rule",
+      "required": ["evaluationMode", "enforcementMode"],
+      "properties": {
+        "evaluationMode": {
+          "type": "string",
+          "description": "How this admission rule will be evaluated",
+          "enum": ["ALWAYS_ALLOW", "ALWAYS_DENY", "REQUIRE_ATTESTATION"]
+        },
+        "requireAttestationsBy": {
+          "type": "array",
+          "description": "Resource names of attestors required by this rule",
+          "items": {
+            "type": "string"
+          }
+        },
+        "enforcementMode": {
+          "type": "string",
+          "description": "The action when a pod creation is denied by the admission rule",
+          "enum": ["ENFORCED_BLOCK_AND_AUDIT_LOG", "DRYRUN_AUDIT_LOG_ONLY"]
+        }
+      }
+    },
+    "AdmissionWhitelistPattern": {
+      "type": "object",
+      "description": "An image name pattern to allow",
+      "properties": {
+        "namePattern": {
+          "type": "string",
+          "description": "An image name pattern to allowlist, in the form registry/path/to/image"
+        }
+      }
+    }
+  }
+}

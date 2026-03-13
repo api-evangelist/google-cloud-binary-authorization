@@ -1,0 +1,59 @@
+name: Google Cloud Binary Authorization
+description: >-
+  Google Cloud Binary Authorization is a deploy-time security control that
+  ensures only trusted container images are deployed on Google Kubernetes Engine
+  (GKE), Cloud Run, and Anthos clusters. It uses attestation-based policies to
+  validate that container images have been signed by trusted authorities before
+  allowing deployment, helping enforce software supply chain security.
+image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-evangelist/google-cloud-binary-authorization/refs/heads/main/apis.yml
+created: '2026-03-13'
+modified: '2026-03-13'
+specificationVersion: '0.18'
+tags:
+- Container Security
+- Kubernetes
+- Supply Chain Security
+- Attestation
+- Policy Enforcement
+- DevSecOps
+apis:
+- name: Binary Authorization API
+  description: >-
+    The Binary Authorization API provides programmatic access to manage
+    deploy-time security policies for container images. Developers can use the
+    API to create and manage attestors, attestations, and policies that control
+    which container images are allowed to be deployed. The API integrates with
+    GKE, Cloud Run, and Anthos to enforce that only verified and trusted
+    container images are deployed to production environments.
+  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  humanURL: https://cloud.google.com/binary-authorization/docs
+  baseURL: https://binaryauthorization.googleapis.com
+  tags:
+  - Attestors
+  - Attestations
+  - Policies
+  - Container Images
+  properties:
+  - type: Documentation
+    url: https://cloud.google.com/binary-authorization/docs/reference/rest
+  - type: OpenAPI
+    url: openapi/binary-authorization-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/google-cloud-binary-authorization-policy-schema.json
+common:
+- type: GettingStarted
+  url: https://cloud.google.com/binary-authorization/docs/getting-started-cli
+- type: Pricing
+  url: https://cloud.google.com/binary-authorization/pricing
+- type: Authentication
+  url: https://cloud.google.com/binary-authorization/docs/reference/rest#authentication
+- type: Support
+  url: https://cloud.google.com/binary-authorization/docs/support
+- type: Status
+  url: https://status.cloud.google.com
+- type: JSON-LD
+  url: json-ld/google-cloud-binary-authorization-context.jsonld
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
