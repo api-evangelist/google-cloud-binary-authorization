@@ -1,3 +1,4 @@
+aid: google-cloud-binary-authorization
 name: Google Cloud Binary Authorization
 description: >-
   Google Cloud Binary Authorization is a deploy-time security control that
@@ -8,8 +9,9 @@ description: >-
 image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/google-cloud-binary-authorization/refs/heads/main/apis.yml
 created: '2026-03-13'
-modified: '2026-03-13'
-specificationVersion: '0.18'
+modified: '2026-03-16'
+specificationVersion: '0.19'
+type: Index
 tags:
 - Container Security
 - Kubernetes
@@ -39,19 +41,29 @@ apis:
     url: https://cloud.google.com/binary-authorization/docs/reference/rest
   - type: OpenAPI
     url: openapi/binary-authorization-api-openapi.yml
+  - type: Authentication
+    url: https://cloud.google.com/binary-authorization/docs/reference/rest#authentication
   - type: JSONSchema
     url: json-schema/google-cloud-binary-authorization-policy-schema.json
 common:
-- type: GettingStarted
+- type: Portal
+  url: https://cloud.google.com/binary-authorization
+- type: Getting Started
   url: https://cloud.google.com/binary-authorization/docs/getting-started-cli
-- type: Pricing
-  url: https://cloud.google.com/binary-authorization/pricing
+- type: Documentation
+  url: https://cloud.google.com/binary-authorization/docs
 - type: Authentication
   url: https://cloud.google.com/binary-authorization/docs/reference/rest#authentication
-- type: Support
-  url: https://cloud.google.com/binary-authorization/docs/support
+- type: Pricing
+  url: https://cloud.google.com/binary-authorization/pricing
+- type: Terms of Service
+  url: https://cloud.google.com/terms
+- type: Privacy Policy
+  url: https://policies.google.com/privacy
 - type: Status
   url: https://status.cloud.google.com
+- type: Support
+  url: https://cloud.google.com/binary-authorization/docs/support
 - type: JSON-LD
   url: json-ld/google-cloud-binary-authorization-context.jsonld
 maintainers:
