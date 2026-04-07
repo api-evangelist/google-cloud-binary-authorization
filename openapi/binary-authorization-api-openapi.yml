@@ -18,12 +18,12 @@ servers:
   - url: https://binaryauthorization.googleapis.com/v1
     description: Production Server
 tags:
-  - name: Policy
-    description: Operations for managing the Binary Authorization policy
-  - name: Attestors
-    description: Operations for managing attestors
   - name: Attestations
     description: Operations for validating attestations
+  - name: Attestors
+    description: Operations for managing attestors
+  - name: Policy
+    description: Operations for managing the Binary Authorization policy
 security:
   - oauth2: []
 paths:
