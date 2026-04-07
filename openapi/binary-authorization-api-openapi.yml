@@ -30,7 +30,7 @@ paths:
   /projects/{projectId}/policy:
     get:
       operationId: getPolicy
-      summary: Get project policy
+      summary: Google Cloud Binary Authorization Get project policy
       description: >-
         Gets the policy for a project. Returns a default policy if the project
         does not have one configured.
@@ -47,7 +47,7 @@ paths:
                 $ref: '#/components/schemas/Policy'
     put:
       operationId: updatePolicy
-      summary: Update project policy
+      summary: Google Cloud Binary Authorization Update project policy
       description: Creates or updates a project's policy.
       tags:
         - Policy
@@ -69,7 +69,7 @@ paths:
   /projects/{projectId}/attestors:
     get:
       operationId: listAttestors
-      summary: List attestors
+      summary: Google Cloud Binary Authorization List attestors
       description: Lists attestors in a project.
       tags:
         - Attestors
@@ -86,7 +86,7 @@ paths:
                 $ref: '#/components/schemas/ListAttestorsResponse'
     post:
       operationId: createAttestor
-      summary: Create an attestor
+      summary: Google Cloud Binary Authorization Create an attestor
       description: Creates an attestor in a project.
       tags:
         - Attestors
@@ -113,7 +113,7 @@ paths:
   /projects/{projectId}/attestors/{attestorId}:
     get:
       operationId: getAttestor
-      summary: Get an attestor
+      summary: Google Cloud Binary Authorization Get an attestor
       description: Gets an attestor by resource name.
       tags:
         - Attestors
@@ -129,7 +129,7 @@ paths:
                 $ref: '#/components/schemas/Attestor'
     put:
       operationId: updateAttestor
-      summary: Update an attestor
+      summary: Google Cloud Binary Authorization Update an attestor
       description: Updates an attestor.
       tags:
         - Attestors
@@ -151,7 +151,7 @@ paths:
                 $ref: '#/components/schemas/Attestor'
     delete:
       operationId: deleteAttestor
-      summary: Delete an attestor
+      summary: Google Cloud Binary Authorization Delete an attestor
       description: Deletes an attestor.
       tags:
         - Attestors
@@ -164,7 +164,7 @@ paths:
   /projects/{projectId}/attestors/{attestorId}:validateAttestationOccurrence:
     post:
       operationId: validateAttestationOccurrence
-      summary: Validate attestation occurrence
+      summary: Google Cloud Binary Authorization Validate attestation occurrence
       description: Returns whether the given attestation occurrence is valid.
       tags:
         - Attestations
