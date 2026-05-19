@@ -1,0 +1,81 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Google Cloud Binary Authorization API — Attestations
+  description: 'Google Cloud Binary Authorization API — Attestations. 1 operations. Lead operation: Google Cloud Binary Authorization
+    Validate attestation occurrence. Self-contained Naftiko capability covering one Google Cloud Binary Authorization business
+    surface.'
+  tags:
+  - Google Cloud Binary Authorization
+  - Attestations
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    GOOGLE_CLOUD_BINARY_AUTHORIZATION_API_KEY: GOOGLE_CLOUD_BINARY_AUTHORIZATION_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: binary-authorization-attestations
+    baseUri: https://binaryauthorization.googleapis.com/v1
+    description: Google Cloud Binary Authorization API — Attestations business capability. Self-contained, no shared references.
+    resources:
+    - name: projects-projectId-attestors-attestorId}:validateAttestationOccurrence
+      path: /projects/{projectId}/attestors/{attestorId}:validateAttestationOccurrence
+      operations:
+      - name: validateattestationoccurrence
+        method: POST
+        description: Google Cloud Binary Authorization Validate attestation occurrence
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.GOOGLE_CLOUD_BINARY_AUTHORIZATION_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: binary-authorization-attestations-rest
+    port: 8080
+    description: REST adapter for Google Cloud Binary Authorization API — Attestations. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/projects/{projectid}/attestors/attestorid-validateattestationoccurrence
+      name: projects-projectid-attestors-attestorid-validateattestationoccurrence
+      description: REST surface for projects-projectId-attestors-attestorId}:validateAttestationOccurrence.
+      operations:
+      - method: POST
+        name: validateattestationoccurrence
+        description: Google Cloud Binary Authorization Validate attestation occurrence
+        call: binary-authorization-attestations.validateattestationoccurrence
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: binary-authorization-attestations-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Google Cloud Binary Authorization API — Attestations. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: google-cloud-binary-authorization-validate
+      description: Google Cloud Binary Authorization Validate attestation occurrence
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: binary-authorization-attestations.validateattestationoccurrence
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

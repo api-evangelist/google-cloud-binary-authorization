@@ -1,0 +1,105 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Google Cloud Binary Authorization API — Policy
+  description: 'Google Cloud Binary Authorization API — Policy. 2 operations. Lead operation: Google Cloud Binary Authorization
+    Get project policy. Self-contained Naftiko capability covering one Google Cloud Binary Authorization business surface.'
+  tags:
+  - Google Cloud Binary Authorization
+  - Policy
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    GOOGLE_CLOUD_BINARY_AUTHORIZATION_API_KEY: GOOGLE_CLOUD_BINARY_AUTHORIZATION_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: binary-authorization-policy
+    baseUri: https://binaryauthorization.googleapis.com/v1
+    description: Google Cloud Binary Authorization API — Policy business capability. Self-contained, no shared references.
+    resources:
+    - name: projects-projectId-policy
+      path: /projects/{projectId}/policy
+      operations:
+      - name: getpolicy
+        method: GET
+        description: Google Cloud Binary Authorization Get project policy
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatepolicy
+        method: PUT
+        description: Google Cloud Binary Authorization Update project policy
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.GOOGLE_CLOUD_BINARY_AUTHORIZATION_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: binary-authorization-policy-rest
+    port: 8080
+    description: REST adapter for Google Cloud Binary Authorization API — Policy. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/projects/{projectid}/policy
+      name: projects-projectid-policy
+      description: REST surface for projects-projectId-policy.
+      operations:
+      - method: GET
+        name: getpolicy
+        description: Google Cloud Binary Authorization Get project policy
+        call: binary-authorization-policy.getpolicy
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updatepolicy
+        description: Google Cloud Binary Authorization Update project policy
+        call: binary-authorization-policy.updatepolicy
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: binary-authorization-policy-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Google Cloud Binary Authorization API — Policy. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: google-cloud-binary-authorization-get
+      description: Google Cloud Binary Authorization Get project policy
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: binary-authorization-policy.getpolicy
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-cloud-binary-authorization-update
+      description: Google Cloud Binary Authorization Update project policy
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: binary-authorization-policy.updatepolicy
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
