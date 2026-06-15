@@ -1,0 +1,1025 @@
+{
+  "item": [
+    {
+      "id": "bd638eae-2857-4110-85e9-6ba4c8bd0ead",
+      "name": "Attestations",
+      "description": {
+        "content": "Operations for validating attestations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6f2261f2-4726-46d3-8df2-8f365d52fae2",
+          "name": "Google Cloud Binary Authorization Validate attestation occurrence",
+          "request": {
+            "name": "Google Cloud Binary Authorization Validate attestation occurrence",
+            "description": {
+              "content": "Returns whether the given attestation occurrence is valid.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "projects",
+                ":projectId",
+                "attestors",
+                "{{attestorId}}:validateAttestationOccurrence"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"attestation\": \"<object>\",\n  \"occurrenceNote\": \"<string>\",\n  \"occurrenceResourceUri\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a1665cc7-f656-4ad1-88f1-f30a7798338e",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":projectId",
+                    "attestors",
+                    "{{attestorId}}:validateAttestationOccurrence"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"attestation\": \"<object>\",\n  \"occurrenceNote\": \"<string>\",\n  \"occurrenceResourceUri\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": \"VERIFIED\",\n  \"denialReason\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "405b125c-8e0f-4fda-9792-f5417bfb0053",
+      "name": "Attestors",
+      "description": {
+        "content": "Operations for managing attestors",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d11d3ddf-a508-4117-b613-baea395432ea",
+          "name": "Google Cloud Binary Authorization List attestors",
+          "request": {
+            "name": "Google Cloud Binary Authorization List attestors",
+            "description": {
+              "content": "Lists attestors in a project.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "projects",
+                ":projectId",
+                "attestors"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageToken",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e4ca4026-1b5a-46f3-8869-d76cd2b5b8fd",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":projectId",
+                    "attestors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"attestors\": [\n    {\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"userOwnedGrafeasNote\": {\n        \"noteReference\": \"string\",\n        \"publicKeys\": [\n          {\n            \"id\": \"string\",\n            \"pkixPublicKey\": {\n              \"publicKeyPem\": \"string\",\n              \"signatureAlgorithm\": \"string\"\n            }\n          },\n          {\n            \"id\": \"string\",\n            \"pkixPublicKey\": {\n              \"publicKeyPem\": \"string\",\n              \"signatureAlgorithm\": \"string\"\n            }\n          }\n        ]\n      },\n      \"updateTime\": \"1986-07-13T01:34:50.135Z\"\n    },\n    {\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"userOwnedGrafeasNote\": {\n        \"noteReference\": \"string\",\n        \"publicKeys\": [\n          {\n            \"id\": \"string\",\n            \"pkixPublicKey\": {\n              \"publicKeyPem\": \"string\",\n              \"signatureAlgorithm\": \"string\"\n            }\n          },\n          {\n            \"id\": \"string\",\n            \"pkixPublicKey\": {\n              \"publicKeyPem\": \"string\",\n              \"signatureAlgorithm\": \"string\"\n            }\n          }\n        ]\n      },\n      \"updateTime\": \"1979-09-09T07:56:06.048Z\"\n    }\n  ],\n  \"nextPageToken\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1f2d2904-f23a-486a-90af-500ed35f658e",
+          "name": "Google Cloud Binary Authorization Create an attestor",
+          "request": {
+            "name": "Google Cloud Binary Authorization Create an attestor",
+            "description": {
+              "content": "Creates an attestor in a project.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "projects",
+                ":projectId",
+                "attestors"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "attestorId",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"userOwnedGrafeasNote\": {\n    \"noteReference\": \"<string>\",\n    \"publicKeys\": [\n      {\n        \"id\": \"<string>\",\n        \"pkixPublicKey\": {\n          \"publicKeyPem\": \"<string>\",\n          \"signatureAlgorithm\": \"<string>\"\n        }\n      },\n      {\n        \"id\": \"<string>\",\n        \"pkixPublicKey\": {\n          \"publicKeyPem\": \"<string>\",\n          \"signatureAlgorithm\": \"<string>\"\n        }\n      }\n    ]\n  },\n  \"updateTime\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5ba6a9fd-fee6-47d3-895e-8d44e0573195",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":projectId",
+                    "attestors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "attestorId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"userOwnedGrafeasNote\": {\n    \"noteReference\": \"<string>\",\n    \"publicKeys\": [\n      {\n        \"id\": \"<string>\",\n        \"pkixPublicKey\": {\n          \"publicKeyPem\": \"<string>\",\n          \"signatureAlgorithm\": \"<string>\"\n        }\n      },\n      {\n        \"id\": \"<string>\",\n        \"pkixPublicKey\": {\n          \"publicKeyPem\": \"<string>\",\n          \"signatureAlgorithm\": \"<string>\"\n        }\n      }\n    ]\n  },\n  \"updateTime\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"userOwnedGrafeasNote\": {\n    \"noteReference\": \"string\",\n    \"publicKeys\": [\n      {\n        \"id\": \"string\",\n        \"pkixPublicKey\": {\n          \"publicKeyPem\": \"string\",\n          \"signatureAlgorithm\": \"string\"\n        }\n      },\n      {\n        \"id\": \"string\",\n        \"pkixPublicKey\": {\n          \"publicKeyPem\": \"string\",\n          \"signatureAlgorithm\": \"string\"\n        }\n      }\n    ]\n  },\n  \"updateTime\": \"1956-06-02T05:19:26.388Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f13ef49d-c8ed-49eb-a81c-12fba60ceb61",
+          "name": "Google Cloud Binary Authorization Get an attestor",
+          "request": {
+            "name": "Google Cloud Binary Authorization Get an attestor",
+            "description": {
+              "content": "Gets an attestor by resource name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "projects",
+                ":projectId",
+                "attestors",
+                ":attestorId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "attestorId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b0b9fde4-3164-4c5e-9624-069deaceb826",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":projectId",
+                    "attestors",
+                    ":attestorId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "attestorId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"userOwnedGrafeasNote\": {\n    \"noteReference\": \"string\",\n    \"publicKeys\": [\n      {\n        \"id\": \"string\",\n        \"pkixPublicKey\": {\n          \"publicKeyPem\": \"string\",\n          \"signatureAlgorithm\": \"string\"\n        }\n      },\n      {\n        \"id\": \"string\",\n        \"pkixPublicKey\": {\n          \"publicKeyPem\": \"string\",\n          \"signatureAlgorithm\": \"string\"\n        }\n      }\n    ]\n  },\n  \"updateTime\": \"1956-06-02T05:19:26.388Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "35a44635-4f5b-4f8b-9e7f-3b3460713e8f",
+          "name": "Google Cloud Binary Authorization Update an attestor",
+          "request": {
+            "name": "Google Cloud Binary Authorization Update an attestor",
+            "description": {
+              "content": "Updates an attestor.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "projects",
+                ":projectId",
+                "attestors",
+                ":attestorId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "attestorId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"userOwnedGrafeasNote\": {\n    \"noteReference\": \"<string>\",\n    \"publicKeys\": [\n      {\n        \"id\": \"<string>\",\n        \"pkixPublicKey\": {\n          \"publicKeyPem\": \"<string>\",\n          \"signatureAlgorithm\": \"<string>\"\n        }\n      },\n      {\n        \"id\": \"<string>\",\n        \"pkixPublicKey\": {\n          \"publicKeyPem\": \"<string>\",\n          \"signatureAlgorithm\": \"<string>\"\n        }\n      }\n    ]\n  },\n  \"updateTime\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7bbf49eb-498b-49d9-b970-f13b55593faf",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":projectId",
+                    "attestors",
+                    ":attestorId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "attestorId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"userOwnedGrafeasNote\": {\n    \"noteReference\": \"<string>\",\n    \"publicKeys\": [\n      {\n        \"id\": \"<string>\",\n        \"pkixPublicKey\": {\n          \"publicKeyPem\": \"<string>\",\n          \"signatureAlgorithm\": \"<string>\"\n        }\n      },\n      {\n        \"id\": \"<string>\",\n        \"pkixPublicKey\": {\n          \"publicKeyPem\": \"<string>\",\n          \"signatureAlgorithm\": \"<string>\"\n        }\n      }\n    ]\n  },\n  \"updateTime\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"userOwnedGrafeasNote\": {\n    \"noteReference\": \"string\",\n    \"publicKeys\": [\n      {\n        \"id\": \"string\",\n        \"pkixPublicKey\": {\n          \"publicKeyPem\": \"string\",\n          \"signatureAlgorithm\": \"string\"\n        }\n      },\n      {\n        \"id\": \"string\",\n        \"pkixPublicKey\": {\n          \"publicKeyPem\": \"string\",\n          \"signatureAlgorithm\": \"string\"\n        }\n      }\n    ]\n  },\n  \"updateTime\": \"1956-06-02T05:19:26.388Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "026265d4-38a8-4781-a810-17631ab22450",
+          "name": "Google Cloud Binary Authorization Delete an attestor",
+          "request": {
+            "name": "Google Cloud Binary Authorization Delete an attestor",
+            "description": {
+              "content": "Deletes an attestor.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "projects",
+                ":projectId",
+                "attestors",
+                ":attestorId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "attestorId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c277a523-5753-40a8-8a49-57109b10f653",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":projectId",
+                    "attestors",
+                    ":attestorId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "attestorId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "ab280d6d-cf5e-4c58-9f3f-0f82eb02798f",
+      "name": "Policy",
+      "description": {
+        "content": "Operations for managing the Binary Authorization policy",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "66e62205-510f-4275-9d7b-23342465536e",
+          "name": "Google Cloud Binary Authorization Get project policy",
+          "request": {
+            "name": "Google Cloud Binary Authorization Get project policy",
+            "description": {
+              "content": "Gets the policy for a project. Returns a default policy if the project does not have one configured.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "projects",
+                ":projectId",
+                "policy"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "25295265-8bbb-4a9c-ad76-36779fa13fd0",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":projectId",
+                    "policy"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"globalPolicyEvaluationMode\": \"ENABLE\",\n  \"admissionWhitelistPatterns\": [\n    {\n      \"namePattern\": \"string\"\n    },\n    {\n      \"namePattern\": \"string\"\n    }\n  ],\n  \"defaultAdmissionRule\": {\n    \"evaluationMode\": \"REQUIRE_ATTESTATION\",\n    \"requireAttestationsBy\": [\n      \"string\",\n      \"string\"\n    ],\n    \"enforcementMode\": \"DRYRUN_AUDIT_LOG_ONLY\"\n  },\n  \"clusterAdmissionRules\": {\n    \"key_0\": {\n      \"evaluationMode\": \"REQUIRE_ATTESTATION\",\n      \"requireAttestationsBy\": [\n        \"string\",\n        \"string\"\n      ],\n      \"enforcementMode\": \"DRYRUN_AUDIT_LOG_ONLY\"\n    },\n    \"key_1\": {\n      \"evaluationMode\": \"REQUIRE_ATTESTATION\",\n      \"requireAttestationsBy\": [\n        \"string\",\n        \"string\"\n      ],\n      \"enforcementMode\": \"ENFORCED_BLOCK_AND_AUDIT_LOG\"\n    },\n    \"key_2\": {\n      \"evaluationMode\": \"REQUIRE_ATTESTATION\",\n      \"requireAttestationsBy\": [\n        \"string\",\n        \"string\"\n      ],\n      \"enforcementMode\": \"DRYRUN_AUDIT_LOG_ONLY\"\n    }\n  },\n  \"updateTime\": \"2023-01-10T22:29:48.674Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8d363245-3eff-44df-8a12-09b1303510fe",
+          "name": "Google Cloud Binary Authorization Update project policy",
+          "request": {
+            "name": "Google Cloud Binary Authorization Update project policy",
+            "description": {
+              "content": "Creates or updates a project's policy.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "projects",
+                ":projectId",
+                "policy"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"globalPolicyEvaluationMode\": \"<string>\",\n  \"admissionWhitelistPatterns\": [\n    {\n      \"namePattern\": \"<string>\"\n    },\n    {\n      \"namePattern\": \"<string>\"\n    }\n  ],\n  \"defaultAdmissionRule\": {\n    \"evaluationMode\": \"<string>\",\n    \"requireAttestationsBy\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"enforcementMode\": \"<string>\"\n  },\n  \"clusterAdmissionRules\": {\n    \"key_0\": {\n      \"evaluationMode\": \"<string>\",\n      \"requireAttestationsBy\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"enforcementMode\": \"<string>\"\n    },\n    \"key_1\": {\n      \"evaluationMode\": \"<string>\",\n      \"requireAttestationsBy\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"enforcementMode\": \"<string>\"\n    }\n  },\n  \"updateTime\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "24bab153-17c5-4ded-916e-f08bc5bb7003",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":projectId",
+                    "policy"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"globalPolicyEvaluationMode\": \"<string>\",\n  \"admissionWhitelistPatterns\": [\n    {\n      \"namePattern\": \"<string>\"\n    },\n    {\n      \"namePattern\": \"<string>\"\n    }\n  ],\n  \"defaultAdmissionRule\": {\n    \"evaluationMode\": \"ALWAYS_DENY\",\n    \"requireAttestationsBy\": [\n      \"string\",\n      \"string\"\n    ],\n    \"enforcementMode\": \"DRYRUN_AUDIT_LOG_ONLY\"\n  },\n  \"clusterAdmissionRules\": {\n    \"key_0\": {\n      \"evaluationMode\": \"ALWAYS_ALLOW\",\n      \"requireAttestationsBy\": [\n        \"string\",\n        \"string\"\n      ],\n      \"enforcementMode\": \"ENFORCED_BLOCK_AND_AUDIT_LOG\"\n    },\n    \"key_1\": {\n      \"evaluationMode\": \"ALWAYS_ALLOW\",\n      \"requireAttestationsBy\": [\n        \"string\",\n        \"string\"\n      ],\n      \"enforcementMode\": \"ENFORCED_BLOCK_AND_AUDIT_LOG\"\n    }\n  },\n  \"updateTime\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"globalPolicyEvaluationMode\": \"ENABLE\",\n  \"admissionWhitelistPatterns\": [\n    {\n      \"namePattern\": \"string\"\n    },\n    {\n      \"namePattern\": \"string\"\n    }\n  ],\n  \"defaultAdmissionRule\": {\n    \"evaluationMode\": \"REQUIRE_ATTESTATION\",\n    \"requireAttestationsBy\": [\n      \"string\",\n      \"string\"\n    ],\n    \"enforcementMode\": \"DRYRUN_AUDIT_LOG_ONLY\"\n  },\n  \"clusterAdmissionRules\": {\n    \"key_0\": {\n      \"evaluationMode\": \"REQUIRE_ATTESTATION\",\n      \"requireAttestationsBy\": [\n        \"string\",\n        \"string\"\n      ],\n      \"enforcementMode\": \"DRYRUN_AUDIT_LOG_ONLY\"\n    },\n    \"key_1\": {\n      \"evaluationMode\": \"REQUIRE_ATTESTATION\",\n      \"requireAttestationsBy\": [\n        \"string\",\n        \"string\"\n      ],\n      \"enforcementMode\": \"ENFORCED_BLOCK_AND_AUDIT_LOG\"\n    },\n    \"key_2\": {\n      \"evaluationMode\": \"REQUIRE_ATTESTATION\",\n      \"requireAttestationsBy\": [\n        \"string\",\n        \"string\"\n      ],\n      \"enforcementMode\": \"DRYRUN_AUDIT_LOG_ONLY\"\n    }\n  },\n  \"updateTime\": \"2023-01-10T22:29:48.674Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://binaryauthorization.googleapis.com/v1",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) ",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "attestorId"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://www.googleapis.com/auth/cloud-platform"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth2.googleapis.com/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://accounts.google.com/o/oauth2/auth"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "81e25a3b-3cb9-4265-b4ef-a63962963439",
+    "name": "Google Cloud Binary Authorization API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Binary Authorization API provides deploy-time security controls for container images on Google Cloud. It enables management of policies, attestors, and attestations to ensure only trusted container images are deployed to GKE, Cloud Run, and Anthos environments.\n\nContact Support:\n Name: Google Cloud Support",
+      "type": "text/plain"
+    }
+  }
+}
