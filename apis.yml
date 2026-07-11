@@ -43,6 +43,12 @@ apis:
       - type: JSONSchema
         url: json-schema/google-cloud-binary-authorization-policy-schema.json
 common:
+  - type: VulnerabilityDisclosure
+    url: security/google-cloud-binary-authorization-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/google-cloud-binary-authorization-domain-security.yml
+  - type: Authentication
+    url: authentication/google-cloud-binary-authorization-authentication.yml
   - type: OAuthScopes
     url: scopes/google-cloud-binary-authorization-scopes.yml
   - type: GitHubOrganization
