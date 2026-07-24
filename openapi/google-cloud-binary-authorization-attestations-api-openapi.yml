@@ -1,0 +1,85 @@
+openapi: 3.1.0
+info:
+  title: Google Cloud Binary Authorization Attestations API
+  description: The Binary Authorization API provides deploy-time security controls for container images on Google Cloud. It enables management of policies, attestors, and attestations to ensure only trusted container images are deployed to GKE, Cloud Run, and Anthos environments.
+  version: v1
+  contact:
+    name: Google Cloud Support
+    url: https://cloud.google.com/binary-authorization/docs/support
+  termsOfService: https://cloud.google.com/terms
+servers:
+- url: https://binaryauthorization.googleapis.com/v1
+  description: Production Server
+security:
+- oauth2: []
+tags:
+- name: Attestations
+  description: Operations for validating attestations
+paths:
+  /projects/{projectId}/attestors/{attestorId}:validateAttestationOccurrence:
+    post:
+      operationId: validateAttestationOccurrence
+      summary: Google Cloud Binary Authorization Validate attestation occurrence
+      description: Returns whether the given attestation occurrence is valid.
+      tags:
+      - Attestations
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      - $ref: '#/components/parameters/attestorId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                attestation:
+                  type: object
+                  description: The attestation to validate
+                occurrenceNote:
+                  type: string
+                  description: The resource name of the note to which the occurrence is associated
+                occurrenceResourceUri:
+                  type: string
+                  description: The URI of the resource the occurrence is associated with
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: string
+                    enum:
+                    - VERIFIED
+                    - ATTESTATION_NOT_VERIFIABLE
+                  denialReason:
+                    type: string
+components:
+  parameters:
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      schema:
+        type: string
+    attestorId:
+      name: attestorId
+      in: path
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/cloud-platform: Full access to Google Cloud
+externalDocs:
+  description: Binary Authorization API Documentation
+  url: https://cloud.google.com/binary-authorization/docs/reference/rest

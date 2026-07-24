@@ -1,0 +1,190 @@
+openapi: 3.1.0
+info:
+  title: Google Cloud Binary Authorization Attestations Attestors API
+  description: The Binary Authorization API provides deploy-time security controls for container images on Google Cloud. It enables management of policies, attestors, and attestations to ensure only trusted container images are deployed to GKE, Cloud Run, and Anthos environments.
+  version: v1
+  contact:
+    name: Google Cloud Support
+    url: https://cloud.google.com/binary-authorization/docs/support
+  termsOfService: https://cloud.google.com/terms
+servers:
+- url: https://binaryauthorization.googleapis.com/v1
+  description: Production Server
+security:
+- oauth2: []
+tags:
+- name: Attestors
+  description: Operations for managing attestors
+paths:
+  /projects/{projectId}/attestors:
+    get:
+      operationId: listAttestors
+      summary: Google Cloud Binary Authorization List attestors
+      description: Lists attestors in a project.
+      tags:
+      - Attestors
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/pageToken'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListAttestorsResponse'
+    post:
+      operationId: createAttestor
+      summary: Google Cloud Binary Authorization Create an attestor
+      description: Creates an attestor in a project.
+      tags:
+      - Attestors
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      - name: attestorId
+        in: query
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Attestor'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Attestor'
+  /projects/{projectId}/attestors/{attestorId}:
+    get:
+      operationId: getAttestor
+      summary: Google Cloud Binary Authorization Get an attestor
+      description: Gets an attestor by resource name.
+      tags:
+      - Attestors
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      - $ref: '#/components/parameters/attestorId'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Attestor'
+    put:
+      operationId: updateAttestor
+      summary: Google Cloud Binary Authorization Update an attestor
+      description: Updates an attestor.
+      tags:
+      - Attestors
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      - $ref: '#/components/parameters/attestorId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Attestor'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Attestor'
+    delete:
+      operationId: deleteAttestor
+      summary: Google Cloud Binary Authorization Delete an attestor
+      description: Deletes an attestor.
+      tags:
+      - Attestors
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      - $ref: '#/components/parameters/attestorId'
+      responses:
+        '200':
+          description: Successful response
+components:
+  schemas:
+    Attestor:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The resource name of the attestor
+        description:
+          type: string
+        userOwnedGrafeasNote:
+          type: object
+          properties:
+            noteReference:
+              type: string
+              description: The Container Analysis note reference
+            publicKeys:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  pkixPublicKey:
+                    type: object
+                    properties:
+                      publicKeyPem:
+                        type: string
+                      signatureAlgorithm:
+                        type: string
+        updateTime:
+          type: string
+          format: date-time
+    ListAttestorsResponse:
+      type: object
+      properties:
+        attestors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Attestor'
+        nextPageToken:
+          type: string
+  parameters:
+    pageToken:
+      name: pageToken
+      in: query
+      schema:
+        type: string
+    pageSize:
+      name: pageSize
+      in: query
+      schema:
+        type: integer
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      schema:
+        type: string
+    attestorId:
+      name: attestorId
+      in: path
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/cloud-platform: Full access to Google Cloud
+externalDocs:
+  description: Binary Authorization API Documentation
+  url: https://cloud.google.com/binary-authorization/docs/reference/rest
