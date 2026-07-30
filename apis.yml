@@ -5,7 +5,20 @@ description: >-
   deployed on Google Kubernetes Engine (GKE), Cloud Run, and Anthos clusters. It uses attestation-based policies to
   validate that container images have been signed by trusted authorities before allowing deployment, helping enforce
   software supply chain security.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/google-cloud-binary-authorization.png
 url: https://raw.githubusercontent.com/api-evangelist/google-cloud-binary-authorization/refs/heads/main/apis.yml
 created: '2026-03-13'
 modified: '2026-05-19'
@@ -19,30 +32,57 @@ tags:
   - Policy Enforcement
   - Supply Chain Security
 apis:
-  - name: Binary Authorization API
-    description: >-
-      The Binary Authorization API provides programmatic access to manage deploy-time security policies for container
-      images. Developers can use the API to create and manage attestors, attestations, and policies that control which
-      container images are allowed to be deployed. The API integrates with GKE, Cloud Run, and Anthos to enforce that
-      only verified and trusted container images are deployed to production environments.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://cloud.google.com/binary-authorization/docs
-    baseURL: https://binaryauthorization.googleapis.com
-    tags:
-      - Attestations
-      - Attestors
-      - Container Images
-      - Policies
-    properties:
-      - type: Documentation
-        url: https://cloud.google.com/binary-authorization/docs/reference/rest
-      - type: OpenAPI
-        url: openapi/binary-authorization-api-openapi.yml
-      - type: Authentication
-        url: https://cloud.google.com/binary-authorization/docs/reference/rest#authentication
-      - type: JSONSchema
-        url: json-schema/google-cloud-binary-authorization-policy-schema.json
+- aid: google-cloud-binary-authorization:google-cloud-binary-authorization-attestations-api
+  name: Google Cloud Binary Authorization Attestations API
+  description: Operations for validating attestations
+  humanURL: https://cloud.google.com/binary-authorization/docs
+  baseURL: https://binaryauthorization.googleapis.com
+  tags:
+  - Attestations
+  properties:
+  - type: OpenAPI
+    url: openapi/google-cloud-binary-authorization-attestations-api-openapi.yml
+  - type: Documentation
+    url: https://cloud.google.com/binary-authorization/docs/reference/rest
+  - type: Authentication
+    url: https://cloud.google.com/binary-authorization/docs/reference/rest#authentication
+  - type: JSONSchema
+    url: json-schema/google-cloud-binary-authorization-policy-schema.json
+- aid: google-cloud-binary-authorization:google-cloud-binary-authorization-attestors-api
+  name: Google Cloud Binary Authorization Attestors API
+  description: Operations for managing attestors
+  humanURL: https://cloud.google.com/binary-authorization/docs
+  baseURL: https://binaryauthorization.googleapis.com
+  tags:
+  - Attestors
+  properties:
+  - type: OpenAPI
+    url: openapi/google-cloud-binary-authorization-attestors-api-openapi.yml
+  - type: Documentation
+    url: https://cloud.google.com/binary-authorization/docs/reference/rest
+  - type: Authentication
+    url: https://cloud.google.com/binary-authorization/docs/reference/rest#authentication
+  - type: JSONSchema
+    url: json-schema/google-cloud-binary-authorization-policy-schema.json
+- aid: google-cloud-binary-authorization:google-cloud-binary-authorization-policy-api
+  name: Google Cloud Binary Authorization Policy API
+  description: Operations for managing the Binary Authorization policy
+  humanURL: https://cloud.google.com/binary-authorization/docs
+  baseURL: https://binaryauthorization.googleapis.com
+  tags:
+  - Policy
+  properties:
+  - type: OpenAPI
+    url: openapi/google-cloud-binary-authorization-policy-api-openapi.yml
+  - type: Documentation
+    url: https://cloud.google.com/binary-authorization/docs/reference/rest
+  - type: Authentication
+    url: https://cloud.google.com/binary-authorization/docs/reference/rest#authentication
+  - type: JSONSchema
+    url: json-schema/google-cloud-binary-authorization-policy-schema.json
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/google-cloud-binary-authorization/overview
   - type: AgenticAccess
     url: agentic-access/google-cloud-binary-authorization-agentic-access.yml
   - type: VulnerabilityDisclosure
