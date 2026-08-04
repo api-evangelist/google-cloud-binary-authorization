@@ -1,0 +1,640 @@
+{
+  "info": {
+    "_postman_id": "7d53e7aa-c1b9-41f6-9946-fac8fc0fbca7",
+    "name": "Google Cloud Binary Authorization Attestations Attestors API",
+    "description": "The Binary Authorization API provides deploy-time security controls for container images on Google Cloud. It enables management of policies, attestors, and attestations to ensure only trusted container images are deployed to GKE, Cloud Run, and Anthos environments.\n\nContact Support:\n Name: Google Cloud Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:46:16.000Z",
+    "updatedAt": "2026-07-28T01:46:16.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-7d53e7aa-c1b9-41f6-9946-fac8fc0fbca7"
+  },
+  "item": [
+    {
+      "name": "projects",
+      "item": [
+        {
+          "name": "{projectId}",
+          "item": [
+            {
+              "name": "attestors",
+              "item": [
+                {
+                  "name": "{attestorId}",
+                  "item": [
+                    {
+                      "name": "Google Cloud Binary Authorization Get an attestor",
+                      "id": "793e34e4-dfa7-4dd0-960b-648a78bdb9a7",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:projectId/attestors/:attestorId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":projectId",
+                            "attestors",
+                            ":attestorId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "64a5b6e2-ee50-4dbf-97fd-0bf4ba131947",
+                              "key": "projectId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "692a0c88-5978-4d37-9ab0-ba644ab2ace4",
+                              "key": "attestorId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Gets an attestor by resource name."
+                      },
+                      "response": [
+                        {
+                          "id": "89822f4e-5452-46cd-a505-5a45eb01a0ac",
+                          "name": "Successful response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/attestors/:attestorId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "attestors",
+                                ":attestorId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectId"
+                                },
+                                {
+                                  "key": "attestorId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"userOwnedGrafeasNote\": {\n    \"noteReference\": \"<string>\",\n    \"publicKeys\": [\n      {\n        \"id\": \"<string>\",\n        \"pkixPublicKey\": {\n          \"publicKeyPem\": \"<string>\",\n          \"signatureAlgorithm\": \"<string>\"\n        }\n      },\n      {\n        \"id\": \"<string>\",\n        \"pkixPublicKey\": {\n          \"publicKeyPem\": \"<string>\",\n          \"signatureAlgorithm\": \"<string>\"\n        }\n      }\n    ]\n  },\n  \"updateTime\": \"<dateTime>\"\n}",
+                          "createdAt": "2026-07-28T01:46:16.000Z",
+                          "updatedAt": "2026-07-28T01:46:16.000Z",
+                          "uid": "35240-89822f4e-5452-46cd-a505-5a45eb01a0ac"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:46:16.000Z",
+                      "updatedAt": "2026-07-28T01:46:16.000Z",
+                      "uid": "35240-793e34e4-dfa7-4dd0-960b-648a78bdb9a7"
+                    },
+                    {
+                      "name": "Google Cloud Binary Authorization Update an attestor",
+                      "id": "64580aba-f67c-41f2-beeb-09edd5c4cd5c",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"userOwnedGrafeasNote\": {\n    \"noteReference\": \"<string>\",\n    \"publicKeys\": [\n      {\n        \"id\": \"<string>\",\n        \"pkixPublicKey\": {\n          \"publicKeyPem\": \"<string>\",\n          \"signatureAlgorithm\": \"<string>\"\n        }\n      },\n      {\n        \"id\": \"<string>\",\n        \"pkixPublicKey\": {\n          \"publicKeyPem\": \"<string>\",\n          \"signatureAlgorithm\": \"<string>\"\n        }\n      }\n    ]\n  },\n  \"updateTime\": \"<dateTime>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:projectId/attestors/:attestorId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":projectId",
+                            "attestors",
+                            ":attestorId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "985a612b-3e26-4a3e-a44f-7323b47fc63f",
+                              "key": "projectId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "de282d67-2348-4609-a141-042f893a8b7c",
+                              "key": "attestorId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Updates an attestor."
+                      },
+                      "response": [
+                        {
+                          "id": "0095bdcd-be9d-4ecb-9a37-684ad452a008",
+                          "name": "Successful response",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"userOwnedGrafeasNote\": {\n    \"noteReference\": \"<string>\",\n    \"publicKeys\": [\n      {\n        \"id\": \"<string>\",\n        \"pkixPublicKey\": {\n          \"publicKeyPem\": \"<string>\",\n          \"signatureAlgorithm\": \"<string>\"\n        }\n      },\n      {\n        \"id\": \"<string>\",\n        \"pkixPublicKey\": {\n          \"publicKeyPem\": \"<string>\",\n          \"signatureAlgorithm\": \"<string>\"\n        }\n      }\n    ]\n  },\n  \"updateTime\": \"<dateTime>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/attestors/:attestorId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "attestors",
+                                ":attestorId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectId"
+                                },
+                                {
+                                  "key": "attestorId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"userOwnedGrafeasNote\": {\n    \"noteReference\": \"<string>\",\n    \"publicKeys\": [\n      {\n        \"id\": \"<string>\",\n        \"pkixPublicKey\": {\n          \"publicKeyPem\": \"<string>\",\n          \"signatureAlgorithm\": \"<string>\"\n        }\n      },\n      {\n        \"id\": \"<string>\",\n        \"pkixPublicKey\": {\n          \"publicKeyPem\": \"<string>\",\n          \"signatureAlgorithm\": \"<string>\"\n        }\n      }\n    ]\n  },\n  \"updateTime\": \"<dateTime>\"\n}",
+                          "createdAt": "2026-07-28T01:46:16.000Z",
+                          "updatedAt": "2026-07-28T01:46:16.000Z",
+                          "uid": "35240-0095bdcd-be9d-4ecb-9a37-684ad452a008"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:46:16.000Z",
+                      "updatedAt": "2026-07-28T01:46:16.000Z",
+                      "uid": "35240-64580aba-f67c-41f2-beeb-09edd5c4cd5c"
+                    },
+                    {
+                      "name": "Google Cloud Binary Authorization Delete an attestor",
+                      "id": "4b0b2e4c-a1ca-4f74-98a2-f2f554ddfbd2",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:projectId/attestors/:attestorId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":projectId",
+                            "attestors",
+                            ":attestorId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "f7323e20-07b5-41d4-a27d-e5a13543074a",
+                              "key": "projectId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "0af2475a-fd9a-495c-8bf6-b5e97386051b",
+                              "key": "attestorId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Deletes an attestor."
+                      },
+                      "response": [
+                        {
+                          "id": "b881d5a5-cd9e-4fbc-be6b-9bafff307f89",
+                          "name": "Successful response",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/attestors/:attestorId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "attestors",
+                                ":attestorId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectId"
+                                },
+                                {
+                                  "key": "attestorId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:46:16.000Z",
+                          "updatedAt": "2026-07-28T01:46:16.000Z",
+                          "uid": "35240-b881d5a5-cd9e-4fbc-be6b-9bafff307f89"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:46:16.000Z",
+                      "updatedAt": "2026-07-28T01:46:16.000Z",
+                      "uid": "35240-4b0b2e4c-a1ca-4f74-98a2-f2f554ddfbd2"
+                    }
+                  ],
+                  "id": "d59e1bc6-bb31-43d5-b5fb-6d04aad8d49d",
+                  "createdAt": "2026-07-28T01:46:16.000Z",
+                  "updatedAt": "2026-07-28T01:46:16.000Z",
+                  "uid": "35240-d59e1bc6-bb31-43d5-b5fb-6d04aad8d49d"
+                },
+                {
+                  "name": "Google Cloud Binary Authorization List attestors",
+                  "id": "56f3fbad-66e6-4ab6-99aa-d8f52a315553",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/projects/:projectId/attestors?pageSize=<integer>&pageToken=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "projects",
+                        ":projectId",
+                        "attestors"
+                      ],
+                      "query": [
+                        {
+                          "key": "pageSize",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "pageToken",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "b525d097-8180-4be4-afda-faa067f76397",
+                          "key": "projectId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Lists attestors in a project."
+                  },
+                  "response": [
+                    {
+                      "id": "7d19d578-7330-492a-a42b-f9b4d783ef4f",
+                      "name": "Successful response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:projectId/attestors?pageSize=<integer>&pageToken=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":projectId",
+                            "attestors"
+                          ],
+                          "query": [
+                            {
+                              "key": "pageSize",
+                              "value": "<integer>"
+                            },
+                            {
+                              "key": "pageToken",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "projectId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"attestors\": [\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"userOwnedGrafeasNote\": {\n        \"noteReference\": \"<string>\",\n        \"publicKeys\": [\n          {\n            \"id\": \"<string>\",\n            \"pkixPublicKey\": {\n              \"publicKeyPem\": \"<string>\",\n              \"signatureAlgorithm\": \"<string>\"\n            }\n          },\n          {\n            \"id\": \"<string>\",\n            \"pkixPublicKey\": {\n              \"publicKeyPem\": \"<string>\",\n              \"signatureAlgorithm\": \"<string>\"\n            }\n          }\n        ]\n      },\n      \"updateTime\": \"<dateTime>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"userOwnedGrafeasNote\": {\n        \"noteReference\": \"<string>\",\n        \"publicKeys\": [\n          {\n            \"id\": \"<string>\",\n            \"pkixPublicKey\": {\n              \"publicKeyPem\": \"<string>\",\n              \"signatureAlgorithm\": \"<string>\"\n            }\n          },\n          {\n            \"id\": \"<string>\",\n            \"pkixPublicKey\": {\n              \"publicKeyPem\": \"<string>\",\n              \"signatureAlgorithm\": \"<string>\"\n            }\n          }\n        ]\n      },\n      \"updateTime\": \"<dateTime>\"\n    }\n  ],\n  \"nextPageToken\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:46:16.000Z",
+                      "updatedAt": "2026-07-28T01:46:16.000Z",
+                      "uid": "35240-7d19d578-7330-492a-a42b-f9b4d783ef4f"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:46:16.000Z",
+                  "updatedAt": "2026-07-28T01:46:16.000Z",
+                  "uid": "35240-56f3fbad-66e6-4ab6-99aa-d8f52a315553"
+                },
+                {
+                  "name": "Google Cloud Binary Authorization Create an attestor",
+                  "id": "e315dc68-f477-4e6c-b4b7-7a8215b1aa62",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"userOwnedGrafeasNote\": {\n    \"noteReference\": \"<string>\",\n    \"publicKeys\": [\n      {\n        \"id\": \"<string>\",\n        \"pkixPublicKey\": {\n          \"publicKeyPem\": \"<string>\",\n          \"signatureAlgorithm\": \"<string>\"\n        }\n      },\n      {\n        \"id\": \"<string>\",\n        \"pkixPublicKey\": {\n          \"publicKeyPem\": \"<string>\",\n          \"signatureAlgorithm\": \"<string>\"\n        }\n      }\n    ]\n  },\n  \"updateTime\": \"<dateTime>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/projects/:projectId/attestors?attestorId=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "projects",
+                        ":projectId",
+                        "attestors"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "attestorId",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "ca8e94d1-b49d-48b6-9a56-0858f1f91947",
+                          "key": "projectId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Creates an attestor in a project."
+                  },
+                  "response": [
+                    {
+                      "id": "d0f29f80-f515-404f-81c3-61db8cd0830a",
+                      "name": "Successful response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"userOwnedGrafeasNote\": {\n    \"noteReference\": \"<string>\",\n    \"publicKeys\": [\n      {\n        \"id\": \"<string>\",\n        \"pkixPublicKey\": {\n          \"publicKeyPem\": \"<string>\",\n          \"signatureAlgorithm\": \"<string>\"\n        }\n      },\n      {\n        \"id\": \"<string>\",\n        \"pkixPublicKey\": {\n          \"publicKeyPem\": \"<string>\",\n          \"signatureAlgorithm\": \"<string>\"\n        }\n      }\n    ]\n  },\n  \"updateTime\": \"<dateTime>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:projectId/attestors?attestorId=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":projectId",
+                            "attestors"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "attestorId",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "projectId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"userOwnedGrafeasNote\": {\n    \"noteReference\": \"<string>\",\n    \"publicKeys\": [\n      {\n        \"id\": \"<string>\",\n        \"pkixPublicKey\": {\n          \"publicKeyPem\": \"<string>\",\n          \"signatureAlgorithm\": \"<string>\"\n        }\n      },\n      {\n        \"id\": \"<string>\",\n        \"pkixPublicKey\": {\n          \"publicKeyPem\": \"<string>\",\n          \"signatureAlgorithm\": \"<string>\"\n        }\n      }\n    ]\n  },\n  \"updateTime\": \"<dateTime>\"\n}",
+                      "createdAt": "2026-07-28T01:46:16.000Z",
+                      "updatedAt": "2026-07-28T01:46:16.000Z",
+                      "uid": "35240-d0f29f80-f515-404f-81c3-61db8cd0830a"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:46:16.000Z",
+                  "updatedAt": "2026-07-28T01:46:16.000Z",
+                  "uid": "35240-e315dc68-f477-4e6c-b4b7-7a8215b1aa62"
+                }
+              ],
+              "id": "e63408ed-a047-448a-8d95-4f37e984cedb",
+              "createdAt": "2026-07-28T01:46:16.000Z",
+              "updatedAt": "2026-07-28T01:46:16.000Z",
+              "uid": "35240-e63408ed-a047-448a-8d95-4f37e984cedb"
+            }
+          ],
+          "id": "cf1b4251-3ac3-4d71-a984-0d11866fb3ef",
+          "createdAt": "2026-07-28T01:46:16.000Z",
+          "updatedAt": "2026-07-28T01:46:16.000Z",
+          "uid": "35240-cf1b4251-3ac3-4d71-a984-0d11866fb3ef"
+        }
+      ],
+      "id": "722a8ae6-11ca-4384-a576-0de1080a2cfc",
+      "createdAt": "2026-07-28T01:46:16.000Z",
+      "updatedAt": "2026-07-28T01:46:16.000Z",
+      "uid": "35240-722a8ae6-11ca-4384-a576-0de1080a2cfc"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://www.googleapis.com/auth/cloud-platform",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth2.googleapis.com/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://accounts.google.com/o/oauth2/auth",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://binaryauthorization.googleapis.com/v1"
+    }
+  ]
+}

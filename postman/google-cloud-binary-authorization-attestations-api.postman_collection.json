@@ -1,0 +1,205 @@
+{
+  "info": {
+    "_postman_id": "96c68d72-b45f-4fdf-85aa-84f1d821da0f",
+    "name": "Google Cloud Binary Authorization Attestations API",
+    "description": "The Binary Authorization API provides deploy-time security controls for container images on Google Cloud. It enables management of policies, attestors, and attestations to ensure only trusted container images are deployed to GKE, Cloud Run, and Anthos environments.\n\nContact Support:\n Name: Google Cloud Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:46:05.000Z",
+    "updatedAt": "2026-07-28T01:46:05.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-96c68d72-b45f-4fdf-85aa-84f1d821da0f"
+  },
+  "item": [
+    {
+      "name": "projects",
+      "item": [
+        {
+          "name": "{projectId}",
+          "item": [
+            {
+              "name": "attestors",
+              "item": [
+                {
+                  "name": "{attestorId}:validateAttestationOccurrence",
+                  "item": [
+                    {
+                      "name": "Google Cloud Binary Authorization Validate attestation occurrence",
+                      "id": "0f55fd8e-2897-4b53-a854-c767759a5c13",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"attestation\": {},\n  \"occurrenceNote\": \"<string>\",\n  \"occurrenceResourceUri\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:projectId/attestors/{{attestorId}}:validateAttestationOccurrence",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":projectId",
+                            "attestors",
+                            "{{attestorId}}:validateAttestationOccurrence"
+                          ],
+                          "variable": [
+                            {
+                              "id": "7af4da76-1e49-4c03-9892-63c58fb09940",
+                              "key": "projectId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Returns whether the given attestation occurrence is valid."
+                      },
+                      "response": [
+                        {
+                          "id": "ba5ea394-6098-4aaa-9686-c13084939bb3",
+                          "name": "Successful response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"attestation\": {},\n  \"occurrenceNote\": \"<string>\",\n  \"occurrenceResourceUri\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/attestors/{{attestorId}}:validateAttestationOccurrence",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "attestors",
+                                "{{attestorId}}:validateAttestationOccurrence"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"result\": \"VERIFIED\",\n  \"denialReason\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:46:06.000Z",
+                          "updatedAt": "2026-07-28T01:46:06.000Z",
+                          "uid": "35240-ba5ea394-6098-4aaa-9686-c13084939bb3"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:46:06.000Z",
+                      "updatedAt": "2026-07-28T01:46:06.000Z",
+                      "uid": "35240-0f55fd8e-2897-4b53-a854-c767759a5c13"
+                    }
+                  ],
+                  "id": "eb064c01-6752-43f5-8376-761e2f567662",
+                  "createdAt": "2026-07-28T01:46:05.000Z",
+                  "updatedAt": "2026-07-28T01:46:05.000Z",
+                  "uid": "35240-eb064c01-6752-43f5-8376-761e2f567662"
+                }
+              ],
+              "id": "a22eb499-0810-43b1-a2bd-a84e28f65269",
+              "createdAt": "2026-07-28T01:46:05.000Z",
+              "updatedAt": "2026-07-28T01:46:05.000Z",
+              "uid": "35240-a22eb499-0810-43b1-a2bd-a84e28f65269"
+            }
+          ],
+          "id": "240d56e1-7614-4698-9acb-b26aff26f0f2",
+          "createdAt": "2026-07-28T01:46:05.000Z",
+          "updatedAt": "2026-07-28T01:46:05.000Z",
+          "uid": "35240-240d56e1-7614-4698-9acb-b26aff26f0f2"
+        }
+      ],
+      "id": "23f54f75-d536-44ad-a257-3ade9122dcbf",
+      "createdAt": "2026-07-28T01:46:05.000Z",
+      "updatedAt": "2026-07-28T01:46:05.000Z",
+      "uid": "35240-23f54f75-d536-44ad-a257-3ade9122dcbf"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://www.googleapis.com/auth/cloud-platform",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth2.googleapis.com/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://accounts.google.com/o/oauth2/auth",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://binaryauthorization.googleapis.com/v1"
+    },
+    {
+      "key": "attestorId",
+      "value": "<string>"
+    }
+  ]
+}

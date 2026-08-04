@@ -1,0 +1,18 @@
+{
+  "provider": "google-cloud-binary-authorization",
+  "sources": [
+    "google-cloud-binary-authorization-attestations-api-openapi.yml",
+    "google-cloud-binary-authorization-attestors-api-openapi.yml",
+    "google-cloud-binary-authorization-policy-api-openapi.yml"
+  ],
+  "outputs": [
+    "google-cloud-binary-authorization-attestations-api-openapi.yml",
+    "google-cloud-binary-authorization-attestors-api-openapi.yml",
+    "google-cloud-binary-authorization-policy-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
