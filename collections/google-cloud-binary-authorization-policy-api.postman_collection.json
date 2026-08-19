@@ -1,0 +1,270 @@
+{
+  "item": [
+    {
+      "id": "8f8add9f-1df9-4238-bdd1-f11ab87867b4",
+      "name": "Policy",
+      "description": {
+        "content": "Operations for managing the Binary Authorization policy",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3cbeef49-0c7b-46f5-b434-3554510bcdad",
+          "name": "Google Cloud Binary Authorization Get project policy",
+          "request": {
+            "name": "Google Cloud Binary Authorization Get project policy",
+            "description": {
+              "content": "Gets the policy for a project. Returns a default policy if the project does not have one configured.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "projects",
+                ":projectId",
+                "policy"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "aec9d731-ab3b-463f-958b-ccc38f7b956d",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":projectId",
+                    "policy"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"globalPolicyEvaluationMode\": \"ENABLE\",\n  \"admissionWhitelistPatterns\": [\n    {\n      \"namePattern\": \"string\"\n    },\n    {\n      \"namePattern\": \"string\"\n    }\n  ],\n  \"defaultAdmissionRule\": {\n    \"evaluationMode\": \"ALWAYS_ALLOW\",\n    \"requireAttestationsBy\": [\n      \"string\",\n      \"string\"\n    ],\n    \"enforcementMode\": \"ENFORCED_BLOCK_AND_AUDIT_LOG\"\n  },\n  \"clusterAdmissionRules\": {\n    \"key_0\": {\n      \"evaluationMode\": \"ALWAYS_DENY\",\n      \"requireAttestationsBy\": [\n        \"string\",\n        \"string\"\n      ],\n      \"enforcementMode\": \"DRYRUN_AUDIT_LOG_ONLY\"\n    },\n    \"key_1\": {\n      \"evaluationMode\": \"ALWAYS_ALLOW\",\n      \"requireAttestationsBy\": [\n        \"string\",\n        \"string\"\n      ],\n      \"enforcementMode\": \"DRYRUN_AUDIT_LOG_ONLY\"\n    },\n    \"key_2\": {\n      \"evaluationMode\": \"ALWAYS_DENY\",\n      \"requireAttestationsBy\": [\n        \"string\",\n        \"string\"\n      ],\n      \"enforcementMode\": \"ENFORCED_BLOCK_AND_AUDIT_LOG\"\n    },\n    \"key_3\": {\n      \"evaluationMode\": \"ALWAYS_ALLOW\",\n      \"requireAttestationsBy\": [\n        \"string\",\n        \"string\"\n      ],\n      \"enforcementMode\": \"ENFORCED_BLOCK_AND_AUDIT_LOG\"\n    }\n  },\n  \"updateTime\": \"1973-04-04T16:22:07.022Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ecef436f-7597-40e4-b05f-f1cccf560610",
+          "name": "Google Cloud Binary Authorization Update project policy",
+          "request": {
+            "name": "Google Cloud Binary Authorization Update project policy",
+            "description": {
+              "content": "Creates or updates a project's policy.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "projects",
+                ":projectId",
+                "policy"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"globalPolicyEvaluationMode\": \"<string>\",\n  \"admissionWhitelistPatterns\": [\n    {\n      \"namePattern\": \"<string>\"\n    },\n    {\n      \"namePattern\": \"<string>\"\n    }\n  ],\n  \"defaultAdmissionRule\": {\n    \"evaluationMode\": \"<string>\",\n    \"requireAttestationsBy\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"enforcementMode\": \"<string>\"\n  },\n  \"clusterAdmissionRules\": {\n    \"key_0\": {\n      \"evaluationMode\": \"<string>\",\n      \"requireAttestationsBy\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"enforcementMode\": \"<string>\"\n    }\n  },\n  \"updateTime\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c96b7545-fb53-4c50-80ae-36b36a9e8858",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":projectId",
+                    "policy"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"globalPolicyEvaluationMode\": \"<string>\",\n  \"admissionWhitelistPatterns\": [\n    {\n      \"namePattern\": \"<string>\"\n    },\n    {\n      \"namePattern\": \"<string>\"\n    }\n  ],\n  \"defaultAdmissionRule\": {\n    \"evaluationMode\": \"REQUIRE_ATTESTATION\",\n    \"requireAttestationsBy\": [\n      \"string\",\n      \"string\"\n    ],\n    \"enforcementMode\": \"DRYRUN_AUDIT_LOG_ONLY\"\n  },\n  \"clusterAdmissionRules\": {\n    \"key_0\": {\n      \"evaluationMode\": \"ALWAYS_ALLOW\",\n      \"requireAttestationsBy\": [\n        \"string\",\n        \"string\"\n      ],\n      \"enforcementMode\": \"ENFORCED_BLOCK_AND_AUDIT_LOG\"\n    },\n    \"key_1\": {\n      \"evaluationMode\": \"REQUIRE_ATTESTATION\",\n      \"requireAttestationsBy\": [\n        \"string\",\n        \"string\"\n      ],\n      \"enforcementMode\": \"ENFORCED_BLOCK_AND_AUDIT_LOG\"\n    },\n    \"key_2\": {\n      \"evaluationMode\": \"ALWAYS_DENY\",\n      \"requireAttestationsBy\": [\n        \"string\",\n        \"string\"\n      ],\n      \"enforcementMode\": \"ENFORCED_BLOCK_AND_AUDIT_LOG\"\n    }\n  },\n  \"updateTime\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"globalPolicyEvaluationMode\": \"ENABLE\",\n  \"admissionWhitelistPatterns\": [\n    {\n      \"namePattern\": \"string\"\n    },\n    {\n      \"namePattern\": \"string\"\n    }\n  ],\n  \"defaultAdmissionRule\": {\n    \"evaluationMode\": \"ALWAYS_ALLOW\",\n    \"requireAttestationsBy\": [\n      \"string\",\n      \"string\"\n    ],\n    \"enforcementMode\": \"ENFORCED_BLOCK_AND_AUDIT_LOG\"\n  },\n  \"clusterAdmissionRules\": {\n    \"key_0\": {\n      \"evaluationMode\": \"ALWAYS_DENY\",\n      \"requireAttestationsBy\": [\n        \"string\",\n        \"string\"\n      ],\n      \"enforcementMode\": \"DRYRUN_AUDIT_LOG_ONLY\"\n    },\n    \"key_1\": {\n      \"evaluationMode\": \"ALWAYS_ALLOW\",\n      \"requireAttestationsBy\": [\n        \"string\",\n        \"string\"\n      ],\n      \"enforcementMode\": \"DRYRUN_AUDIT_LOG_ONLY\"\n    },\n    \"key_2\": {\n      \"evaluationMode\": \"ALWAYS_DENY\",\n      \"requireAttestationsBy\": [\n        \"string\",\n        \"string\"\n      ],\n      \"enforcementMode\": \"ENFORCED_BLOCK_AND_AUDIT_LOG\"\n    },\n    \"key_3\": {\n      \"evaluationMode\": \"ALWAYS_ALLOW\",\n      \"requireAttestationsBy\": [\n        \"string\",\n        \"string\"\n      ],\n      \"enforcementMode\": \"ENFORCED_BLOCK_AND_AUDIT_LOG\"\n    }\n  },\n  \"updateTime\": \"1973-04-04T16:22:07.022Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://binaryauthorization.googleapis.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://www.googleapis.com/auth/cloud-platform"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth2.googleapis.com/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://accounts.google.com/o/oauth2/auth"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "6026a187-4bf2-41eb-809d-f8ba49f1e552",
+    "name": "Google Cloud Binary Authorization Attestations Policy API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Binary Authorization API provides deploy-time security controls for container images on Google Cloud. It enables management of policies, attestors, and attestations to ensure only trusted container images are deployed to GKE, Cloud Run, and Anthos environments.\n\nContact Support:\n Name: Google Cloud Support",
+      "type": "text/plain"
+    }
+  }
+}

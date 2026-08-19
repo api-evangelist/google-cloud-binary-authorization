@@ -1,0 +1,70 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google Cloud Binary Authorization Attestations Policy API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "accessTokenUrl": "https://oauth2.googleapis.com/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Policy",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Cloud Binary Authorization Get project policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://binaryauthorization.googleapis.com/v1/projects/:projectId/policy",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Gets the policy for a project. Returns a default policy if the project does not have one configured."
+        },
+        {
+          "info": {
+            "name": "Google Cloud Binary Authorization Update project policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://binaryauthorization.googleapis.com/v1/projects/:projectId/policy",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates or updates a project's policy."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
