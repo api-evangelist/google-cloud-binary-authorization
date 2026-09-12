@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Google Cloud Binary Authorization Attestations Policy API
   description: The Binary Authorization API provides deploy-time security controls for container images on Google Cloud. It enables management of policies, attestors, and attestations to ensure only trusted container images are deployed to GKE, Cloud Run, and Anthos environments.
@@ -54,13 +54,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/Policy'
 components:
-  parameters:
-    projectId:
-      name: projectId
-      in: path
-      required: true
-      schema:
-        type: string
   schemas:
     AdmissionRule:
       type: object
@@ -112,6 +105,13 @@ components:
         updateTime:
           type: string
           format: date-time
+  parameters:
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      schema:
+        type: string
   securitySchemes:
     oauth2:
       type: oauth2

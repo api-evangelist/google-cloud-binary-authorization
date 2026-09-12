@@ -13,6 +13,11 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
+  "notes": [
+    "google-cloud-binary-authorization-attestations-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "google-cloud-binary-authorization-attestors-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "google-cloud-binary-authorization-policy-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
   "skipped": []
 }
