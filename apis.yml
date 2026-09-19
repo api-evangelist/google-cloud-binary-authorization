@@ -50,6 +50,8 @@ apis:
   humanURL: https://cloud.google.com/binary-authorization/docs
   baseURL: https://binaryauthorization.googleapis.com
   tags:
+  - Attestation
+  tags_raw:
   - Attestations
   properties:
   - type: OpenAPI
