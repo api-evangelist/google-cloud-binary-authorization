@@ -1,9 +1,7 @@
 {
   "provider": "google-cloud-binary-authorization",
   "sources": [
-    "google-cloud-binary-authorization-attestations-api-openapi.yml",
-    "google-cloud-binary-authorization-attestors-api-openapi.yml",
-    "google-cloud-binary-authorization-policy-api-openapi.yml"
+    "_original/binary-authorization-api-openapi.yml"
   ],
   "outputs": [
     "google-cloud-binary-authorization-attestations-api-openapi.yml",
@@ -14,10 +12,13 @@
   "errors": [],
   "warnings": [],
   "notes": [
-    "google-cloud-binary-authorization-attestations-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "google-cloud-binary-authorization-attestors-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "google-cloud-binary-authorization-policy-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "binary-authorization-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "google-cloud-binary-authorization-attestations-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "google-cloud-binary-authorization-attestors-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "google-cloud-binary-authorization-policy-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
