@@ -112,6 +112,29 @@ paths:
         '200':
           description: Successful response
 components:
+  parameters:
+    pageToken:
+      name: pageToken
+      in: query
+      schema:
+        type: string
+    attestorId:
+      name: attestorId
+      in: path
+      required: true
+      schema:
+        type: string
+    pageSize:
+      name: pageSize
+      in: query
+      schema:
+        type: integer
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      schema:
+        type: string
   schemas:
     Attestor:
       type: object
@@ -153,29 +176,6 @@ components:
             $ref: '#/components/schemas/Attestor'
         nextPageToken:
           type: string
-  parameters:
-    projectId:
-      name: projectId
-      in: path
-      required: true
-      schema:
-        type: string
-    pageSize:
-      name: pageSize
-      in: query
-      schema:
-        type: integer
-    attestorId:
-      name: attestorId
-      in: path
-      required: true
-      schema:
-        type: string
-    pageToken:
-      name: pageToken
-      in: query
-      schema:
-        type: string
   securitySchemes:
     oauth2:
       type: oauth2
