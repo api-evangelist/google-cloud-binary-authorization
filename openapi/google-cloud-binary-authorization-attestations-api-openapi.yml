@@ -59,14 +59,14 @@ paths:
                     type: string
 components:
   parameters:
-    projectId:
-      name: projectId
+    attestorId:
+      name: attestorId
       in: path
       required: true
       schema:
         type: string
-    attestorId:
-      name: attestorId
+    projectId:
+      name: projectId
       in: path
       required: true
       schema:
