@@ -55,6 +55,25 @@ paths:
                 $ref: '#/components/schemas/Policy'
 components:
   schemas:
+    AdmissionRule:
+      type: object
+      properties:
+        evaluationMode:
+          type: string
+          enum:
+          - ALWAYS_ALLOW
+          - ALWAYS_DENY
+          - REQUIRE_ATTESTATION
+        requireAttestationsBy:
+          type: array
+          items:
+            type: string
+          description: Resource names of attestors required
+        enforcementMode:
+          type: string
+          enum:
+          - ENFORCED_BLOCK_AND_AUDIT_LOG
+          - DRYRUN_AUDIT_LOG_ONLY
     Policy:
       type: object
       properties:
@@ -86,25 +105,6 @@ components:
         updateTime:
           type: string
           format: date-time
-    AdmissionRule:
-      type: object
-      properties:
-        evaluationMode:
-          type: string
-          enum:
-          - ALWAYS_ALLOW
-          - ALWAYS_DENY
-          - REQUIRE_ATTESTATION
-        requireAttestationsBy:
-          type: array
-          items:
-            type: string
-          description: Resource names of attestors required
-        enforcementMode:
-          type: string
-          enum:
-          - ENFORCED_BLOCK_AND_AUDIT_LOG
-          - DRYRUN_AUDIT_LOG_ONLY
   parameters:
     projectId:
       name: projectId

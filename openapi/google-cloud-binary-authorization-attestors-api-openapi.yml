@@ -112,29 +112,6 @@ paths:
         '200':
           description: Successful response
 components:
-  parameters:
-    attestorId:
-      name: attestorId
-      in: path
-      required: true
-      schema:
-        type: string
-    pageToken:
-      name: pageToken
-      in: query
-      schema:
-        type: string
-    pageSize:
-      name: pageSize
-      in: query
-      schema:
-        type: integer
-    projectId:
-      name: projectId
-      in: path
-      required: true
-      schema:
-        type: string
   schemas:
     ListAttestorsResponse:
       type: object
@@ -176,6 +153,29 @@ components:
         updateTime:
           type: string
           format: date-time
+  parameters:
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      schema:
+        type: string
+    pageToken:
+      name: pageToken
+      in: query
+      schema:
+        type: string
+    pageSize:
+      name: pageSize
+      in: query
+      schema:
+        type: integer
+    attestorId:
+      name: attestorId
+      in: path
+      required: true
+      schema:
+        type: string
   securitySchemes:
     oauth2:
       type: oauth2
