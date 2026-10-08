@@ -95,6 +95,12 @@ apis:
   - type: JSONSchema
     url: json-schema/google-cloud-binary-authorization-policy-schema.json
 common:
+  - type: Plans
+    url: plans/google-cloud-binary-authorization-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/google-cloud-binary-authorization-rate-limits.yml
+  - type: FinOps
+    url: finops/google-cloud-binary-authorization-finops.yml
   - type: Website
     url: https://www.google.com/
   - type: PostmanWorkspace
